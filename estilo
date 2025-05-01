@@ -1,0 +1,145 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Georgia', serif;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* Texto inicial */
+.intro {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #111 0%, #000 100%);
+  cursor: pointer;
+}
+
+#click-text {
+  font-size: 2rem;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #b88aff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 2s infinite;
+}
+
+/* Runas y puerta */
+#runas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 50px;
+  transition: opacity 2s;
+}
+
+.runa {
+  width: 80px;
+  filter: brightness(0.3);
+  transition: filter 1s;
+}
+
+.puerta {
+  width: 300px;
+  transition: transform 1.5s ease-in-out;
+}
+
+/* Videos */
+video {
+  width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Voz en off */
+.voiceover {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 2rem;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+/* Logo final */
+#logo-final {
+  margin-top: 50px;
+}
+
+#logo-final img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+#btn-futuro {
+  background-color: #b88aff;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#btn-futuro:hover {
+  background-color: #fff;
+}
+
+/* Formulario */
+#formulario form {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+}
+
+#formulario input {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+#formulario button {
+  padding: 12px;
+  background: #b88aff;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animaciones */
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 5px #b88aff;
+  }
+  50% {
+    text-shadow: 0 0 20px #b88aff;
+  }
+  100% {
+    text-shadow: 0 0 5px #b88aff;
+  }
+}
