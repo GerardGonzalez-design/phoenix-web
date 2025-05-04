@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transición</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background: #000;
+      height: 100%;
       overflow: hidden;
+      background: #000;
     }
 
     video {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
-      display: block;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
 
   <video id="transitionVideo" autoplay muted playsinline>
-    <source src="assets/video.mp4" type="video/mp4">
-    Tu navegador no admite video.
+    <source src="assets/video.mp4" type="video/mp4" />
+    Tu navegador no admite el elemento de video.
   </video>
 
   <script>
     const video = document.getElementById("transitionVideo");
 
-    video.addEventListener("ended", function () {
-      // Espera 500ms y redirige
-      setTimeout(() => {
-        window.location.href = "formulario.html";
-      }, 500);
+    // Cuando el vídeo termine, redirige
+    video.addEventListener("ended", () => {
+      window.location.href = "formulario.html";
     });
 
-    // DEBUG fallback si el evento no se dispara
+    // Fallback por si el evento "ended" falla (muy raro pero puede pasar)
     setTimeout(() => {
       if (video.ended || video.currentTime > 0) return;
-      // Si el video no comenzó en 5s, forzamos redirección
       window.location.href = "formulario.html";
-    }, 5000);
+    }, 10000); // espera 10 segundos antes de forzar redirección
   </script>
 
 </body>
