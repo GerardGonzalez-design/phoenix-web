@@ -8,15 +8,13 @@ document.getElementById("mainText").addEventListener("click", () => {
   door.classList.add("open");
 
   setTimeout(() => {
-    // Ocultar y luego eliminar background video
     bgVideo.pause();
     bgVideo.remove();
 
-    // Mostrar segundo video (guerra)
+    // Reproducir segundo video
     video2.style.display = "block";
     video2.play();
 
-    // Al terminar guerra → mostrar fénix
     video2.onended = () => {
       video2.pause();
       video2.remove();
@@ -28,11 +26,12 @@ document.getElementById("mainText").addEventListener("click", () => {
         video3.pause();
         video3.remove();
 
-        // Eliminar puerta del DOM
+        // Quitar puerta
         door.remove();
 
-        // Mostrar logo + botón futuro
-        document.getElementById("logoSection").style.display = "flex";
+        // Mostrar logo
+        const logoSection = document.getElementById("logoSection");
+        logoSection.style.display = "flex";
       };
     };
   }, 2000);
@@ -48,7 +47,8 @@ document.getElementById("futureBtn").addEventListener("click", () => {
     finalVideo.pause();
     finalVideo.remove();
 
-    document.getElementById("finalSection").style.display = "flex";
+    // Mostrar formulario final
+    const finalSection = document.getElementById("finalSection");
+    finalSection.style.display = "flex";
   };
 });
-
