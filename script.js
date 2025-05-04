@@ -6,24 +6,25 @@ const futureBtn   = document.getElementById('futureBtn');
 const fenixVideo  = document.getElementById('fenixVideo');
 const finalSec    = document.getElementById('finalSection');
 
-// 1) Click en el texto → aparece la puerta y se abre
+// 1) Click en el texto → mostrar y abrir la puerta
 mainText.addEventListener('click', () => {
-  // Oculto texto y runas
+  // Ocultar texto y runas
   mainText.style.display = 'none';
   runes.style.display    = 'none';
 
-  // Muestro y animo la puerta
+  // Mostrar la puerta
   door.style.display = 'block';
+  // Iniciar la animación (ligero delay para redibujar)
   setTimeout(() => door.classList.add('open'), 50);
 
-  // Tras terminar animación de 1.5s, paso al logo
+  // Tras 1.5s de animación, quito la puerta y muestro logo+botón
   setTimeout(() => {
-    door.remove();                    // quito la puerta
-    logoSection.style.display = 'flex'; // muestro logo+botón
+    door.remove();
+    logoSection.style.display = 'flex';
   }, 1600);
 });
 
-// 2) Click en "Futuro" → vídeo del Fénix → formulario
+// 2) Click en "Futuro" → reproducir Fénix → mostrar formulario
 futureBtn.addEventListener('click', () => {
   logoSection.style.display = 'none';
   fenixVideo.style.display  = 'block';
