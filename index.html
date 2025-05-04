@@ -8,15 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Video de fondo -->
   <div class="video-background" id="videoContainer">
     <video autoplay muted id="backgroundVideo">
       <source src="assets/videos/banquete.mp4" type="video/mp4" />
     </video>
   </div>
 
+  <!-- Capa principal con la animación -->
   <div class="overlay">
     <div class="main-text" id="mainText">La puerta a tu pasado, presente y con nosotros, futuro</div>
 
+    <!-- Runas que aparecen en la animación -->
     <div class="runes show" id="runes">
       <div class="rune">ᚠ</div>
       <div class="rune">ᚢ</div>
@@ -25,15 +28,17 @@
       <div class="rune">ᛉ</div>
     </div>
 
+    <!-- Puerta ocupando toda la pantalla -->
     <div class="door" id="door"></div>
 
+    <!-- Logo y botón "Futuro" después de la animación -->
     <div class="logo-section" id="logoSection">
       <img src="assets/images/logo.png" alt="Logo" class="logo" />
       <button id="futureBtn">Futuro</button>
     </div>
   </div>
 
-  <!-- Ocultos hasta que se usan -->
+  <!-- Videos ocultos hasta que se usen -->
   <video id="video2" muted preload="auto">
     <source src="assets/videos/guerra.mp4" type="video/mp4" />
   </video>
@@ -46,6 +51,7 @@
     <source src="assets/videos/futuro.mp4" type="video/mp4" />
   </video>
 
+  <!-- Formulario final -->
   <div class="final-section" id="finalSection">
     <div class="final-message">¿Tú quién eliges ser?</div>
     <form class="formulario">
