@@ -15,5 +15,76 @@
       <button type="submit">Enviar</button>
     </form>
   </div>
+  
+  /* ---------- FORMULARIO ---------- */
+.formulario-body {
+  background: url('assets/intro.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.formulario-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.formulario-titulo {
+  font-size: 1.8rem;
+  color: #f2e9dc;
+  margin-bottom: 20px;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #f2e9dc;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.formulario input:focus {
+  outline: none;
+  border-color: #f2e9dc;
+  box-shadow: 0 0 8px rgba(242, 233, 220, 0.6);
+}
+
+.formulario button {
+  width: 100%;
+  padding: 10px;
+  background-color: #222;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #444;
+}
+
+/* Estilo para los campos del formulario */
+.formulario input::placeholder {
+  color: rgba(242, 233, 220, 0.5);
+}
+
+/* Para la transición de las sombras y bordes */
+.formulario input:focus {
+  box-shadow: 0 0 12px rgba(242, 233, 220, 0.8);
+}
+
 </body>
 </html>
