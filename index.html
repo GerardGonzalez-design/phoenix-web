@@ -5,42 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Puerta del Tiempo</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Video de fondo inicial -->
   <div class="video-background">
-    <video autoplay muted loop id="backgroundVideo">
+    <video autoplay muted loop id="backgroundVideo" class="fade-video">
       <source src="assets/videos/banquete.mp4" type="video/mp4" />
     </video>
   </div>
 
-  <!-- Capa de contenido principal -->
-  <div class="overlay">
-    <div class="main-text">La puerta a tu pasado, presente y con nosotros, futuro</div>
+  <div id="particles-js"></div>
 
-    <div class="runes">
-      <div class="rune"></div>
-      <div class="rune"></div>
-      <div class="rune"></div>
-      <div class="rune"></div>
-      <div class="rune"></div>
+  <div class="overlay">
+    <div class="main-text" id="mainText">La puerta a tu pasado, presente y con nosotros, futuro</div>
+
+    <div class="runes" id="runes">
+      <div class="rune">ᚠ</div>
+      <div class="rune">ᚢ</div>
+      <div class="rune">ᚦ</div>
+      <div class="rune">ᚨ</div>
+      <div class="rune">ᛉ</div>
     </div>
 
-    <div class="door"></div>
+    <div class="door" id="door"></div>
 
-    <div class="logo-section">
+    <div class="logo-section" id="logoSection">
       <img src="assets/images/logo.png" alt="Logo" class="logo" />
       <button id="futureBtn">Futuro</button>
     </div>
   </div>
 
-  <!-- Video de futuro contrastado -->
-  <video id="finalVideo" style="display:none" muted>
+  <video id="finalVideo" style="display: none;" muted>
     <source src="assets/videos/futuro.mp4" type="video/mp4" />
   </video>
 
-  <!-- Sección final con formulario -->
-  <div class="final-section">
+  <div class="final-section" id="finalSection">
     <div class="final-message">¿Tú quién eliges ser?</div>
     <form class="formulario">
       <input type="text" placeholder="Tu nombre" required />
@@ -49,6 +48,7 @@
     </form>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
