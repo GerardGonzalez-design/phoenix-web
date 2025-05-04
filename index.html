@@ -8,19 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Video de fondo -->
-  <div class="video-background" id="videoContainer">
-    <video autoplay muted id="backgroundVideo">
-      <source src="assets/videos/banquete.mp4" type="video/mp4" />
-    </video>
-  </div>
 
-  <!-- Capa principal con la animación -->
   <div class="overlay">
+    <!-- 1. Texto y runas iniciales -->
     <div class="main-text" id="mainText">La puerta a tu pasado, presente y con nosotros, futuro</div>
-
-    <!-- Runas que aparecen en la animación -->
-    <div class="runes show" id="runes">
+    <div class="runes" id="runes">
       <div class="rune">ᚠ</div>
       <div class="rune">ᚢ</div>
       <div class="rune">ᚦ</div>
@@ -28,30 +20,22 @@
       <div class="rune">ᛉ</div>
     </div>
 
-    <!-- Puerta ocupando toda la pantalla -->
+    <!-- 2. Puerta fullscreen, oculta hasta el click -->
     <div class="door" id="door"></div>
 
-    <!-- Logo y botón "Futuro" después de la animación -->
+    <!-- 3. Logo + botón Futuro, oculto hasta que abra la puerta -->
     <div class="logo-section" id="logoSection">
       <img src="assets/images/logo.png" alt="Logo" class="logo" />
       <button id="futureBtn">Futuro</button>
     </div>
   </div>
 
-  <!-- Videos ocultos hasta que se usen -->
-  <video id="video2" muted preload="auto" style="display: none;">
-    <source src="assets/videos/guerra.mp4" type="video/mp4" />
-  </video>
-
-  <video id="video3" muted preload="auto" style="display: none;">
+  <!-- 4. Vídeo del Fénix -->
+  <video id="fenixVideo" muted preload="auto">
     <source src="assets/videos/fenix.mp4" type="video/mp4" />
   </video>
 
-  <video id="finalVideo" muted preload="auto" style="display: none;">
-    <source src="assets/videos/futuro.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Formulario final -->
+  <!-- 5. Formulario final -->
   <div class="final-section" id="finalSection">
     <div class="final-message">¿Tú quién eliges ser?</div>
     <form class="formulario">
