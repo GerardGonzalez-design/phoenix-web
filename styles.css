@@ -195,98 +195,74 @@ body, html {
   object-fit: cover;
   z-index: 1;
 }
-
-/* ——— FORMULARIO DE CONTACTO ——— */
-.form-section {
+/* ---------- FORMULARIO ---------- */
+.formulario-body {
+  background: url('assets/intro.png') no-repeat center center;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url('assets/images/intro.png') center/cover no-repeat;
-  position: relative;
 }
 
-.form-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.form-container {
-  position: relative;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 2rem;
+.formulario-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   max-width: 400px;
   width: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(245,200,95,0.8);
   text-align: center;
 }
 
-.form-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.25rem;
-  line-height: 1.2;
-  color: #f5c85f;
-  text-shadow: 0 0 10px rgba(245,200,95,0.9);
-  margin-bottom: 1.5rem;
-  animation: titleFadeIn 1s forwards;
+.formulario-titulo {
+  font-size: 1.8rem;
+  color: #f2e9dc;
+  margin-bottom: 20px;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.contact-form label {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  color: #f5c85f;
-  text-align: left;
-}
-
-.contact-form input {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+.formulario input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #f2e9dc;
   color: #fff;
-  background: #222;
-  border: 1px solid #f5c85f;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-.submit-button {
-  margin-top: 1rem;
-  padding: 0.75rem 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  color: #000;
-  background: #f5c85f;
+.formulario input:focus {
+  outline: none;
+  border-color: #f2e9dc;
+  box-shadow: 0 0 8px rgba(242, 233, 220, 0.6);
+}
+
+.formulario button {
+  width: 100%;
+  padding: 10px;
+  background-color: #222;
   border: none;
-  border-radius: 50px;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 15px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(245,200,95,0.8);
-  transition: background 0.3s, transform 0.2s;
-  animation: btnFadeIn 1s forwards 0.5s;
+  transition: background 0.3s;
 }
 
-.submit-button:hover {
-  background: #e0b85a;
-  transform: scale(1.05);
+.formulario button:hover {
+  background-color: #444;
 }
 
-/* Reutilizamos keyframes definidos antes */
-@keyframes titleFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Estilo para los campos del formulario */
+.formulario input::placeholder {
+  color: rgba(242, 233, 220, 0.5);
 }
 
-@keyframes btnFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Para la transición de las sombras y bordes */
+.formulario input:focus {
+  box-shadow: 0 0 12px rgba(242, 233, 220, 0.8);
 }
 
 /* ---------- GRACIAS ---------- */
