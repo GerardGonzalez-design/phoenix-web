@@ -1,61 +1,36 @@
-document.getElementById("mainText").addEventListener("click", () => {
-  const door = document.getElementById("door");
-  const bgVideo = document.getElementById("backgroundVideo");
-  const video2 = document.getElementById("video2");
-  const video3 = document.getElementById("video3");
+const mainText    = document.getElementById('mainText');
+const runes       = document.getElementById('runes');
+const door        = document.getElementById('door');
+const logoSection = document.getElementById('logoSection');
+const futureBtn   = document.getElementById('futureBtn');
+const fenixVideo  = document.getElementById('fenixVideo');
+const finalSec    = document.getElementById('finalSection');
 
-  // Iniciar la animación de la puerta (se abre)
-  door.classList.add("open");
+// 1) Click en el texto → aparece la puerta y se abre
+mainText.addEventListener('click', () => {
+  // Oculto texto y runas
+  mainText.style.display = 'none';
+  runes.style.display    = 'none';
 
-  // Al terminar la animación de la puerta (2 segundos)
+  // Muestro y animo la puerta
+  door.style.display = 'block';
+  setTimeout(() => door.classList.add('open'), 50);
+
+  // Tras terminar animación de 1.5s, paso al logo
   setTimeout(() => {
-    // Pausar y eliminar el primer video
-    bgVideo.pause();
-    bgVideo.remove();
-
-    // Mostrar y reproducir el video de guerra
-    video2.style.display = "block";
-    video2.play();
-
-    video2.onended = () => {
-      // Pausar y eliminar el video de guerra
-      video2.pause();
-      video2.remove();
-
-      // Mostrar y reproducir el video del Fénix
-      video3.style.display = "block";
-      video3.play();
-
-      video3.onended = () => {
-        // Pausar y eliminar el video del Fénix
-        video3.pause();
-        video3.remove();
-
-        // Eliminar la puerta después de la animación
-        door.remove();
-
-        // Mostrar el logo y el botón "Futuro"
-        const logoSection = document.getElementById("logoSection");
-        logoSection.style.display = "flex";
-      };
-    };
-  }, 2000); // Tiempo igual al de la animación de la puerta
+    door.remove();                    // quito la puerta
+    logoSection.style.display = 'flex'; // muestro logo+botón
+  }, 1600);
 });
 
-document.getElementById("futureBtn").addEventListener("click", () => {
-  const finalVideo = document.getElementById("finalVideo");
+// 2) Click en "Futuro" → vídeo del Fénix → formulario
+futureBtn.addEventListener('click', () => {
+  logoSection.style.display = 'none';
+  fenixVideo.style.display  = 'block';
+  fenixVideo.play();
 
-  // Mostrar y reproducir el video final
-  finalVideo.style.display = "block";
-  finalVideo.play();
-
-  finalVideo.onended = () => {
-    // Pausar y eliminar el video final
-    finalVideo.pause();
-    finalVideo.remove();
-
-    // Mostrar el formulario final
-    const finalSection = document.getElementById("finalSection");
-    finalSection.style.display = "flex";
+  fenixVideo.onended = () => {
+    fenixVideo.remove();
+    finalSec.style.display = 'flex';
   };
 });
