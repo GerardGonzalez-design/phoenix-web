@@ -39,27 +39,6 @@
       <a href="formulario.html" class="intro-button">FUTURO</a>
     </div>
   </section>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const button = document.querySelector(".intro-button");
-    const title = document.querySelector(".intro-title");
-    const introSection = document.getElementById("introSection");
 
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      // Fade out del título
-      title.classList.add("intro-fade-out");
-
-      // Zoom del fondo
-      introSection.classList.add("intro-zoom-bg");
-
-      // Redirección tras la animación
-      setTimeout(() => {
-        window.location.href = button.getAttribute("href");
-      }, 1800); // espera a que acabe la animación
-    });
-  });
-</script>
 </body>
 </html>
