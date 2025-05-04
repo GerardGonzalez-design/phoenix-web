@@ -1,161 +1,113 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body, html {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
   font-family: 'Playfair Display', serif;
-  background-color: #000;
-  color: #fff;
-  height: 100%;
+  background-color: #000; color: #fff;
   overflow: hidden;
 }
 
-video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.video-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
+/* CAPA PRINCIPAL */
 .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; z-index: 2;
 }
 
+/* TEXTO + RUNAS */
 .main-text {
-  font-size: 2rem;
-  max-width: 600px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  z-index: 3;
+  font-size: 2rem; max-width: 600px;
+  margin-bottom: 1rem; cursor: pointer;
 }
-
 .runes {
-  display: flex;
-  gap: 10px;
-  opacity: 0;
-  transition: opacity 1s ease-in;
-  z-index: 3;
+  display: flex; gap: 0.5rem;
+  opacity: 0; animation: runesIn 1s forwards;
 }
-
-.runes.show {
-  opacity: 1;
-}
-
+@keyframes runesIn { to { opacity: 1; } }
 .rune {
-  font-size: 2.5rem;
-  color: gold;
+  font-size: 2.5rem; color: gold;
   animation: glow 2s infinite alternate;
 }
-
 @keyframes glow {
-  0% { text-shadow: 0 0 5px gold; }
-  100% { text-shadow: 0 0 20px gold; }
+  from { text-shadow: 0 0 5px gold; }
+    to { text-shadow: 0 0 20px gold; }
 }
 
-/* Puerta ocupa toda la pantalla y tiene una animación de apertura */
+/* PUERTA FULLSCREEN */
 .door {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('assets/images/puerta.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
-  transition: transform 2s ease, opacity 1s;
-  z-index: 3;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('assets/images/puerta.png') center/cover no-repeat;
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 1.5s ease, opacity 1.5s ease;
+  opacity: 1; z-index: 3;
 }
-
 .door.open {
   transform: scaleX(0);
   opacity: 0;
 }
 
-/* Logo y botón "Futuro" */
+/* LOGO + BOTÓN FUTURO */
 .logo-section {
   display: none;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
   z-index: 4;
 }
-
 .logo {
-  width: 150px;
-  margin-bottom: 20px;
-  animation: fadeIn 2s forwards;
+  width: 150px; margin-bottom: 1rem;
+  animation: fadeIn 1s forwards;
 }
-
 #futureBtn {
-  padding: 10px 30px;
+  padding: 0.75rem 2rem;
   font-size: 1rem;
-  background: transparent;
-  border: 2px solid gold;
-  color: gold;
-  cursor: pointer;
+  background: transparent; border: 2px solid gold;
+  color: gold; cursor: pointer;
   transition: background 0.3s, color 0.3s;
 }
-
 #futureBtn:hover {
-  background: gold;
-  color: black;
+  background: gold; color: black;
 }
 
-/* Formulario final */
+/* VÍDEO DEL FÉNIX */
+#fenixVideo {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: none;
+  z-index: 1;
+}
+
+/* FORMULARIO FINAL */
 .final-section {
   display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0,0,0,0.9);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 5;
 }
-
 .final-message {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2rem; margin-bottom: 1rem;
 }
-
 .formulario input {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  font-size: 1rem;
-  border: 1px solid gold;
-  background: transparent;
-  color: white;
+  margin: 0.5rem 0; padding: 0.75rem;
+  width: 80%; max-width: 300px;
+  background: transparent; color: #fff;
+  border: 1px solid gold; font-size: 1rem;
+}
+.formulario button {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background: gold; color: #000;
+  border: none; cursor: pointer;
+  font-weight: bold;
 }
 
-.formulario button {
-  padding: 10px 20px;
-  border: 2px solid gold;
-  background: gold;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
 }
