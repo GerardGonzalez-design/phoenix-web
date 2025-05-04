@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Puerta del Tiempo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Video de fondo inicial -->
+  <div class="video-background">
+    <video autoplay muted loop id="backgroundVideo">
+      <source src="assets/videos/banquete.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Capa de contenido principal -->
+  <div class="overlay">
+    <div class="main-text">La puerta a tu pasado, presente y con nosotros, futuro</div>
+
+    <div class="runes">
+      <div class="rune"></div>
+      <div class="rune"></div>
+      <div class="rune"></div>
+      <div class="rune"></div>
+      <div class="rune"></div>
+    </div>
+
+    <div class="door"></div>
+
+    <div class="logo-section">
+      <img src="assets/images/logo.png" alt="Logo" class="logo" />
+      <button id="futureBtn">Futuro</button>
+    </div>
+  </div>
+
+  <!-- Video de futuro contrastado -->
+  <video id="finalVideo" style="display:none" muted>
+    <source src="assets/videos/futuro.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Sección final con formulario -->
+  <div class="final-section">
+    <div class="final-message">¿Tú quién eliges ser?</div>
+    <form class="formulario">
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="tel" placeholder="Tu número de teléfono" required />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
