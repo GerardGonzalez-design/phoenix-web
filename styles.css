@@ -1,62 +1,122 @@
-/* ——— FORMULARIO DE CONTACTO ——— */
-.form-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #1e1e1e;
-  color: #f5c85f;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.form-container {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(245, 200, 95, 0.5);
-  max-width: 400px;
+/* Tipografía */
+body, html {
   width: 100%;
-  text-align: center;
-}
-
-h2 {
+  height: 100%;
+  overflow: hidden;
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  background: #000;
+  color: #fff;
 }
 
-form {
+/* ——— INTRO SECCIÓN FULLSCREEN ——— */
+.intro {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: url('assets/images/intro.png') center/cover no-repeat;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Capa oscura encima de la imagen para contraste */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Runas a los lados */
+.runes-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  z-index: 101;
+}
+.runes-side.left { left: 5%; }
+.runes-side.right { right: 5%; }
+
+.rune {
+  font-size: 1.75rem;
+  color: #f5c85f;
+  text-shadow: 0 0 10px rgba(245,200,95,0.8);
+  opacity: 0;
+  animation: runeFadeIn 1s forwards;
 }
 
-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+/* Delays escalonados para un efecto cascada */
+.runes-side.left .rune:nth-child(1) { animation-delay: 0.5s; }
+.runes-side.left .rune:nth-child(2) { animation-delay: 1s; }
+.runes-side.left .rune:nth-child(3) { animation-delay: 1.5s; }
+.runes-side.left .rune:nth-child(4) { animation-delay: 2s; }
+.runes-side.left .rune:nth-child(5) { animation-delay: 2.5s; }
+.runes-side.right .rune:nth-child(1) { animation-delay: 0.75s; }
+.runes-side.right .rune:nth-child(2) { animation-delay: 1.25s; }
+.runes-side.right .rune:nth-child(3) { animation-delay: 1.75s; }
+.runes-side.right .rune:nth-child(4) { animation-delay: 2.25s; }
+.runes-side.right .rune:nth-child(5) { animation-delay: 2.75s; }
+
+@keyframes runeFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenido central */
+.intro-content {
+  position: relative;
+  z-index: 102;
+  text-align: center;
   color: #f5c85f;
 }
 
-input {
-  padding: 0.8rem;
-  border: 1px solid #f5c85f;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #333;
+.intro-title {
+  font-size: 3rem;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(245,200,95,0.9);
+  opacity: 0;
+  animation: titleFadeIn 1.5s forwards 1s;
 }
 
-.submit-button {
-  margin-top: 1rem;
-  padding: 0.75rem;
+@keyframes titleFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Botón FUTURO */
+.intro-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 3rem;
   font-size: 1.25rem;
   color: #000;
   background: #f5c85f;
   border: none;
   border-radius: 50px;
-  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
   box-shadow: 0 0 20px rgba(245,200,95,0.8);
+  opacity: 0;
+  animation: btnFadeIn 1s forwards 2s;
+  transition: background 0.3s;
 }
 
-.submit-button:hover {
+.intro-button:hover {
   background: #e0b85a;
+}
+
+@keyframes btnFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
