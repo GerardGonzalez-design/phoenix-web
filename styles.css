@@ -1,115 +1,68 @@
 * { box-sizing: border-box; }
-
 body, html {
   margin: 0; padding: 0;
   width: 100%; height: 100%;
   font-family: 'Playfair Display', serif;
-  background-color: #000; color: #fff;
-  overflow: hidden;
+  background: #000; color: #fff; overflow: hidden;
 }
 
-/* CAPA PRINCIPAL */
-.overlay {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; z-index: 2;
-}
-
-/* TEXTO + RUNAS */
-.main-text {
-  font-size: 2rem; max-width: 600px;
-  margin-bottom: 1rem; cursor: pointer;
-  z-index: 3;
-}
-.runes {
-  display: flex; gap: 0.5rem;
-  opacity: 0; animation: runesIn 1s forwards;
-  z-index: 3;
-}
+/* Paso 1: texto + runas */
+.overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 2; }
+.main-text { font-size: 2rem; cursor: pointer; margin-bottom: 1rem; }
+.runes { display: flex; gap: .5rem; opacity: 0; animation: runesIn 1s forwards; }
 @keyframes runesIn { to { opacity: 1; } }
-.rune {
-  font-size: 2.5rem; color: gold;
-  animation: glow 2s infinite alternate;
-}
-@keyframes glow {
-  from { text-shadow: 0 0 5px gold; }
-    to { text-shadow: 0 0 20px gold; }
-}
+.rune { font-size: 2.5rem; color: gold; animation: glow 2s infinite alternate; }
+@keyframes glow { from { text-shadow: 0 0 5px gold; } to { text-shadow: 0 0 20px gold; } }
 
-/* PUERTA FULLSCREEN (oculta por defecto) */
+/* Paso 2: puerta fullscreen */
 .door {
   display: none;
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: absolute; inset: 0;
   background: url('assets/images/puerta.png') center/cover no-repeat;
   transform-origin: left center;
-  transform: scaleX(1);
   transition: transform 1.5s ease, opacity 1.5s ease;
-  opacity: 1; z-index: 3;
+  z-index: 3;
 }
-.door.open {
-  transform: scaleX(0);
-  opacity: 0;
-}
+.door.open { transform: scaleX(0); opacity: 0; }
 
-/* LOGO + BOTÓN FUTURO (ocultos por defecto) */
+/* Paso 3: logo + botón */
 .logo-section {
-  display: none;
-  flex-direction: column; align-items: center;
-  z-index: 4;
+  display: none; flex-direction: column; align-items: center; z-index: 4;
 }
-.logo {
-  width: 150px; margin-bottom: 1rem;
-  animation: fadeIn 1s forwards;
-}
+.logo { width: 150px; margin-bottom: 1rem; animation: fadeIn 1s forwards; }
 #futureBtn {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  background: transparent; border: 2px solid gold;
-  color: gold; cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  padding: .75rem 2rem; font-size: 1rem;
+  background: transparent; border: 2px solid gold; color: gold;
+  cursor: pointer; transition: .3s;
 }
-#futureBtn:hover {
-  background: gold; color: black;
+#futureBtn:hover { background: gold; color: black; }
+
+/* Paso 4: vídeo Fénix */
+#videoContainer {
+  display: none; position: absolute; inset: 0; z-index: 1;
+  background: #000; /* evita ver capa anterior */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+#fenixVideo { width: 80%; max-width: 800px; }
+#continueBtn {
+  margin-top: 1rem; padding: .5rem 1.5rem; font-size: 1rem;
+  background: gold; color: black; border: none; cursor: pointer;
 }
 
-/* VÍDEO DEL FÉNIX (oculto por defecto) */
-#fenixVideo {
-  display: none;
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; z-index: 1;
-}
-
-/* FORMULARIO FINAL (oculto por defecto) */
+/* Paso 5: formulario */
 .final-section {
-  display: none;
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%;
+  display: none; position: fixed; inset: 0;
   background: rgba(0,0,0,0.9);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   z-index: 5;
 }
-.final-message {
-  font-size: 2rem; margin-bottom: 1rem;
-}
+.final-message { font-size: 2rem; margin-bottom: 1rem; }
 .formulario input {
-  margin: 0.5rem 0; padding: 0.75rem;
-  width: 80%; max-width: 300px;
-  background: transparent; color: #fff;
-  border: 1px solid gold; font-size: 1rem;
+  margin: .5rem 0; padding: .75rem; width: 80%; max-width: 300px;
+  background: transparent; color: #fff; border: 1px solid gold;
 }
 .formulario button {
-  margin-top: 1rem;
-  padding: 0.75rem 2rem;
-  background: gold; color: #000;
-  border: none; cursor: pointer;
-  font-weight: bold;
+  margin-top: 1rem; padding: .75rem 2rem; background: gold; color: #000; border: none; cursor: pointer;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; } to { opacity: 1; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
