@@ -1,26 +1,39 @@
 document.getElementById("mainText").addEventListener("click", () => {
-  const runes = document.getElementById("runes");
-  runes.style.opacity = 1;
+  const door = document.getElementById("door");
+  const bgVideo = document.getElementById("backgroundVideo");
+  const video2 = document.getElementById("video2");
+  const video3 = document.getElementById("video3");
 
+  // Abrir la puerta
+  door.classList.add("open");
+
+  // Reproducir segundo video (guerra)
   setTimeout(() => {
-    const door = document.getElementById("door");
-    door.classList.add("open");
+    bgVideo.style.display = "none";
+    video2.style.display = "block";
+    video2.play();
 
-    setTimeout(() => {
-      document.getElementById("logoSection").style.display = "flex";
-    }, 2000);
-  }, 1500);
+    // Al terminar el video de guerra, reproducir fénix
+    video2.onended = () => {
+      video2.style.display = "none";
+      video3.style.display = "block";
+      video3.play();
+
+      video3.onended = () => {
+        video3.style.display = "none";
+        document.getElementById("logoSection").style.display = "flex";
+      };
+    };
+  }, 2000);
 });
 
 document.getElementById("futureBtn").addEventListener("click", () => {
-  const backgroundVideo = document.getElementById("backgroundVideo");
   const finalVideo = document.getElementById("finalVideo");
 
-  backgroundVideo.style.display = "none";
   finalVideo.style.display = "block";
   finalVideo.play();
 
-  setTimeout(() => {
+  finalVideo.onended = () => {
     document.getElementById("finalSection").style.display = "flex";
-  }, 7000); // espera a que termine parte del video
+  };
 });
