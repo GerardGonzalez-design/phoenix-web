@@ -4,14 +4,14 @@ document.getElementById("mainText").addEventListener("click", () => {
   const video2 = document.getElementById("video2");
   const video3 = document.getElementById("video3");
 
-  // Abrir la puerta
+  // Iniciar la animación de la puerta (se abre)
   door.classList.add("open");
 
   setTimeout(() => {
     bgVideo.pause();
     bgVideo.remove();
 
-    // Reproducir segundo video
+    // Reproducir segundo video (guerra)
     video2.style.display = "block";
     video2.play();
 
@@ -26,15 +26,15 @@ document.getElementById("mainText").addEventListener("click", () => {
         video3.pause();
         video3.remove();
 
-        // Quitar puerta
+        // Eliminar puerta
         door.remove();
 
-        // Mostrar logo
+        // Mostrar el logo + botón futuro
         const logoSection = document.getElementById("logoSection");
         logoSection.style.display = "flex";
       };
     };
-  }, 2000);
+  }, 2000); // Tiempos ajustados a la duración de la animación
 });
 
 document.getElementById("futureBtn").addEventListener("click", () => {
