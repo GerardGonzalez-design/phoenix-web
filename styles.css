@@ -90,3 +90,32 @@
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* Animación de fade out del título */
+@keyframes fadeOutZoom {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.2); /* zoom */
+  }
+}
+
+.intro-fade-out {
+  animation: fadeOutZoom 1.5s forwards ease-in-out;
+}
+
+/* Zoom en el fondo de la sección */
+.intro-zoom-bg {
+  animation: bgZoom 2s forwards ease-in-out;
+}
+
+@keyframes bgZoom {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 120%;
+  }
+}
