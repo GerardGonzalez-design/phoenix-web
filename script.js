@@ -3,35 +3,36 @@ const runes       = document.getElementById('runes');
 const door        = document.getElementById('door');
 const logoSection = document.getElementById('logoSection');
 const futureBtn   = document.getElementById('futureBtn');
+const videoCont   = document.getElementById('videoContainer');
 const fenixVideo  = document.getElementById('fenixVideo');
+const continueBtn = document.getElementById('continueBtn');
 const finalSec    = document.getElementById('finalSection');
 
-// 1) Click en el texto → mostrar y abrir la puerta
+// Paso 1 → 2: click en texto
 mainText.addEventListener('click', () => {
-  // Ocultar texto y runas
-  mainText.style.display = 'none';
-  runes.style.display    = 'none';
-
-  // Mostrar la puerta
+  document.getElementById('stepText').style.display = 'none';
   door.style.display = 'block';
-  // Iniciar la animación (ligero delay para redibujar)
-  setTimeout(() => door.classList.add('open'), 50);
-
-  // Tras 1.5s de animación, quito la puerta y muestro logo+botón
-  setTimeout(() => {
+  // espera un tick y abre
+  requestAnimationFrame(() => door.classList.add('open'));
+  // tras animación, mostrar logo
+  door.addEventListener('transitionend', () => {
     door.remove();
     logoSection.style.display = 'flex';
-  }, 1600);
+  }, { once: true });
 });
 
-// 2) Click en "Futuro" → reproducir Fénix → mostrar formulario
+// Paso 3 → 4: click en Futuro
 futureBtn.addEventListener('click', () => {
   logoSection.style.display = 'none';
-  fenixVideo.style.display  = 'block';
-  fenixVideo.play();
-
-  fenixVideo.onended = () => {
-    fenixVideo.remove();
-    finalSec.style.display = 'flex';
-  };
+  videoCont.style.display = 'flex';
 });
+
+// Paso 4 → 5: botón Continuar o al acabar vídeo
+continueBtn.addEventListener('click', showForm);
+fenixVideo.addEventListener('ended', showForm);
+
+function showForm() {
+  fenixVideo.pause();
+  videoCont.style.display = 'none';
+  finalSec.style.display = 'flex';
+}
