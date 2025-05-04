@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="video-background">
+  <div class="video-background" id="videoContainer">
     <video autoplay muted id="backgroundVideo">
       <source src="assets/videos/banquete.mp4" type="video/mp4" />
     </video>
@@ -33,15 +33,16 @@
     </div>
   </div>
 
-  <video id="video2" style="display:none" muted>
+  <!-- Ocultos hasta que se usan -->
+  <video id="video2" muted preload="auto">
     <source src="assets/videos/guerra.mp4" type="video/mp4" />
   </video>
 
-  <video id="video3" style="display:none" muted>
+  <video id="video3" muted preload="auto">
     <source src="assets/videos/fenix.mp4" type="video/mp4" />
   </video>
 
-  <video id="finalVideo" style="display:none" muted>
+  <video id="finalVideo" muted preload="auto">
     <source src="assets/videos/futuro.mp4" type="video/mp4" />
   </video>
 
