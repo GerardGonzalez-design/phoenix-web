@@ -9,17 +9,15 @@
 </head>
 <body>
   <div class="video-background">
-    <video autoplay muted loop id="backgroundVideo" class="fade-video">
+    <video autoplay muted id="backgroundVideo">
       <source src="assets/videos/banquete.mp4" type="video/mp4" />
     </video>
   </div>
 
-  <div id="particles-js"></div>
-
   <div class="overlay">
     <div class="main-text" id="mainText">La puerta a tu pasado, presente y con nosotros, futuro</div>
 
-    <div class="runes" id="runes">
+    <div class="runes show" id="runes">
       <div class="rune">ᚠ</div>
       <div class="rune">ᚢ</div>
       <div class="rune">ᚦ</div>
@@ -35,7 +33,15 @@
     </div>
   </div>
 
-  <video id="finalVideo" style="display: none;" muted>
+  <video id="video2" style="display:none" muted>
+    <source src="assets/videos/guerra.mp4" type="video/mp4" />
+  </video>
+
+  <video id="video3" style="display:none" muted>
+    <source src="assets/videos/fenix.mp4" type="video/mp4" />
+  </video>
+
+  <video id="finalVideo" style="display:none" muted>
     <source src="assets/videos/futuro.mp4" type="video/mp4" />
   </video>
 
@@ -48,7 +54,6 @@
     </form>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
