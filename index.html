@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Puerta del Tiempo</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Puerta a tu Futuro</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- INTRODUCCIÓN -->
+  <section class="intro" id="introSection">
+    <div class="intro-overlay"></div>
 
+    <!-- Runas laterales -->
+    <div class="runes-side left">
+      <div class="rune">ᚠ</div>
+      <div class="rune">ᚢ</div>
+      <div class="rune">ᚦ</div>
+      <div class="rune">ᚨ</div>
+      <div class="rune">ᛉ</div>
+    </div>
+    <div class="runes-side right">
+      <div class="rune">ᚱ</div>
+      <div class="rune">ᛞ</div>
+      <div class="rune">ᛟ</div>
+      <div class="rune">ᛗ</div>
+      <div class="rune">ᚾ</div>
+    </div>
+
+    <!-- Contenido central -->
+    <div class="intro-content">
+      <h1 class="intro-title">LA PUERTA A TU<br>PASADO, PRESENTE<br>Y CON NOSOTROS, FUTURO</h1>
+      <button class="intro-button" id="introBtn">FUTURO</button>
+    </div>
+  </section>
+
+  <!-- Sección Overlay que aparecerá después -->
   <div class="overlay">
-    <!-- 1. Texto + runas -->
-    <div id="stepText">
-      <div class="main-text" id="mainText">La puerta a tu pasado, presente y con nosotros, futuro</div>
-      <div class="runes" id="runes">
-        <div class="rune">ᚠ</div>
-        <div class="rune">ᚢ</div>
-        <div class="rune">ᚦ</div>
-        <div class="rune">ᚨ</div>
-        <div class="rune">ᛉ</div>
-      </div>
+    <!-- Agrega tu contenido de overlay aquí -->
+    <div class="door">
+      <!-- Aquí se abrirá la puerta -->
     </div>
-
-    <!-- 2. Puerta fullscreen (oculta) -->
-    <div class="door" id="door"></div>
-
-    <!-- 3. Logo + botón Futuro (ocultos) -->
-    <div class="logo-section" id="logoSection">
-      <img src="assets/images/logo.png" alt="Logo" class="logo" />
-      <button id="futureBtn">Futuro</button>
-    </div>
-  </div>
-
-  <!-- 4. Vídeo del Fénix (oculto) -->
-  <div id="videoContainer">
-    <video id="fenixVideo" muted preload="auto" controls>
-      <source src="assets/videos/fenix.mp4" type="video/mp4" />
-    </video>
-    <button id="continueBtn">Continuar</button>
-  </div>
-
-  <!-- 5. Formulario final (oculto) -->
-  <div class="final-section" id="finalSection">
-    <div class="final-message">¿Tú quién eliges ser?</div>
-    <form class="formulario">
-      <input type="text" placeholder="Tu nombre" required />
-      <input type="tel" placeholder="Tu número de teléfono" required />
-      <button type="submit">Enviar</button>
-    </form>
   </div>
 
   <script src="script.js"></script>
